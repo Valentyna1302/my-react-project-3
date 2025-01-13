@@ -7,7 +7,6 @@ export const Counter = () => {
   const handleResetClick = () => {
     setCounter(0);
   };
-  console.log(import.meta.env.VITE_API_KEY);
 
   const handlePlusClick = () => {
     // setCounter(counter + 1);
