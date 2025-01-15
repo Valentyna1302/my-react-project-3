@@ -58,9 +58,11 @@ export const Counter = () => {
           <button onClick={handleMinusClick} className='btn'>
             minus
           </button>
-          <button className='btn' onClick={handleResetClick}>
-            reset
-          </button>
+          {counter !== 0 && (
+            <button className='btn' onClick={handleResetClick}>
+              reset
+            </button>
+          )}
           <button className='btn' onClick={handlePlusClick}>
             plus
           </button>
