@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import todosData from './../../assets/todos.json';
 import { TodoItem } from './TodoItem';
 import s from './TodoList.module.css';
 
