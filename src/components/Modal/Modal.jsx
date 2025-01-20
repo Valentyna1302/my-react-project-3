@@ -9,23 +9,14 @@ const Modal = ({ children, title = 'Default modal', closeModal }) => {
 
   useEffect(() => {
     const handleKeyDown = e => {
-      console.log(e.key);
       if (e.key === 'Escape') {
         closeModal();
       }
     };
 
     document.addEventListener('keydown', handleKeyDown);
-    const timeoutId = setTimeout(() => {
-      console.log('O_O');
-    }, 3000);
-    const intervalId = setInterval(() => {
-      console.log(new Date().toLocaleTimeString());
-    }, 1000);
+
     return () => {
-      console.log('Мене закрили!');
-      clearInterval(intervalId);
-      clearTimeout(timeoutId);
       document.removeEventListener('keydown', handleKeyDown);
     };
   }, [closeModal]);
