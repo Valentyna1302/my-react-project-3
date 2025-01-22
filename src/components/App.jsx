@@ -1,7 +1,5 @@
-import ControlledForm from './Forms/ControlledForm';
-import UncontrolledForm from './Forms/UncontrolledForm';
+import ApplyForm from './Forms/ApplyForm';
 import Header from './Header/Header';
-import UseIdExample from './UseIdExample/UseIdExample';
 
 const App = () => {
   const register = credentials => {
@@ -17,8 +15,7 @@ const App = () => {
   return (
     <div>
       <Header />
-      <UseIdExample />
-      {/* <ControlledForm register={register} /> */}
+      <ApplyForm register={register} />
     </div>
   );
 };

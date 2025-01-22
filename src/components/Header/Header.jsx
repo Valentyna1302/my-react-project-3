@@ -1,7 +1,7 @@
 const Header = () => {
   return (
     <header>
-      <h2>Forms</h2>
+      <h2>Forms | Formik</h2>
     </header>
   );
 };
