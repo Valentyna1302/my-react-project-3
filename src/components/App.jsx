@@ -1,12 +1,37 @@
+import { useEffect } from 'react';
 import Header from './Header/Header';
+import { useState } from 'react';
+// import { fetchArticles } from '../services/api';
+import * as articlesService from '../services/api';
+import Articles from './Articles/Articles';
 
 const App = () => {
+  const [articles, setArticles] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+  useEffect(() => {
+    // axios.get('http://hn.algolia.com/api/v1/search?query=react').then(res => setArticles(res.data.hits));
+
+    const getData = async () => {
+      try {
+        setIsLoading(true);
+        setIsError(false);
+        const { hits } = await articlesService.fetchArticles();
+        setArticles(hits);
+      } catch {
+        setIsError(true);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    getData();
+  }, []);
   return (
     <>
       <Header />
-      <div style={{ alignItems: 'center', display: 'flex', justifyContent: 'center', minHeight: '100vh' }}>
-        <img src='https://miro.medium.com/v2/resize:fit:1200/1*MU6RT2oUkgZ4YqGcmv5ohQ.png' width={1000} height={500} />
-      </div>
+      <Articles articles={articles} />
+      {isLoading && <h2>Loading...</h2>}
+      {isError && <h2>Something went wrong! Try again later...</h2>}
     </>
   );
 };
