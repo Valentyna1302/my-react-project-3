@@ -1,22 +1,13 @@
-import ApplyForm from './Forms/ApplyForm';
 import Header from './Header/Header';
 
 const App = () => {
-  const register = credentials => {
-    console.log('Data received!');
-    setTimeout(() => {
-      console.log('Data processing....');
-      setTimeout(() => {
-        console.log(credentials);
-        console.log('User was register successfully!');
-      }, 2000);
-    }, 1000);
-  };
   return (
-    <div>
+    <>
       <Header />
-      <ApplyForm register={register} />
-    </div>
+      <div style={{ alignItems: 'center', display: 'flex', justifyContent: 'center', minHeight: '100vh' }}>
+        <img src='https://miro.medium.com/v2/resize:fit:1200/1*MU6RT2oUkgZ4YqGcmv5ohQ.png' width={1000} height={500} />
+      </div>
+    </>
   );
 };
 export default App;

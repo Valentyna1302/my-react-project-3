@@ -1,7 +1,7 @@
 const Header = () => {
   return (
     <header>
-      <h2>Forms | Formik</h2>
+      <h2>HTTP requests with Axios</h2>
     </header>
   );
 };
