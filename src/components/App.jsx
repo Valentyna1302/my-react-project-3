@@ -5,12 +5,25 @@ import UseRefRenderCountExample from './UseRefRenderCountExample';
 import UseRefForwardRefExample from './UseRefForwardRefExample';
 import LoginForm from './Login/LoginForm';
 import UseContextExample from './UseContextExample/UseContextExample';
+import { createContext, useContext } from 'react';
+import { authContext } from '../providers/AuthProvider/AuthProvider';
+import { themeContext } from '../providers/ThemeProvider/ThemeProvider';
+import clsx from 'clsx';
+
+// export const myContext = createContext();
+// const contextValue = {
+//   auto: 'Audi',
+//   model: 'RS6',
+// };
+
 const App = () => {
-  return (
-    <>
+  const { theme } = useContext(themeContext);
+  const { user } = useContext(authContext);
+  return user ? (
+    <main className={clsx(theme === 'dark' ? 'dark' : 'light')}>
       <Header />
       {/* Step 1. Use memo calc logic */}
-      {/* <UseMemoExample /> */}
+      <UseMemoExample />
 
       {/* Step 2. Use ref */}
       {/* <UseRefRenderCountExample /> */}
@@ -19,14 +32,18 @@ const App = () => {
       {/* <UseRefInputFile /> */}
 
       {/* Step 4. Use forward ref */}
-      <UseRefForwardRefExample />
+      {/* <UseRefForwardRefExample /> */}
 
       {/* Step 5. Use context */}
-      {/* <UseContextExample /> */}
+      {/* <myContext.Provider value={contextValue}>
+    <UseContextExample message={message} />
+  </myContext.Provider> */}
 
       {/* Step 6. Extended context with state */}
       {/* <LoginForm /> */}
-    </>
+    </main>
+  ) : (
+    <LoginForm />
   );
 };
 export default App;

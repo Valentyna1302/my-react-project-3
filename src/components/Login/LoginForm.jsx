@@ -1,14 +1,16 @@
 import { Field, Form, Formik } from 'formik';
-import toast from 'react-hot-toast';
+import { useContext } from 'react';
+import { authContext } from '../../providers/AuthProvider/AuthProvider';
 
 const LoginForm = () => {
+  const { login } = useContext(authContext);
   const initialValues = {
     login: '',
     password: '123qwe',
   };
   const onSubmit = values => {
     console.log(values);
-    toast.success('Login successful');
+    login(values.login);
   };
   return (
     <div className='formWrapper'>
