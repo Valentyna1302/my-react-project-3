@@ -10,22 +10,22 @@ const App = () => {
     <>
       <Header />
       {/* Step 1. Use memo calc logic */}
-      <UseMemoExample />
+      {/* <UseMemoExample /> */}
 
       {/* Step 2. Use ref */}
-      <UseRefRenderCountExample />
+      {/* <UseRefRenderCountExample /> */}
 
       {/* Step 3. Use ref file*/}
-      <UseRefInputFile />
+      {/* <UseRefInputFile /> */}
 
       {/* Step 4. Use forward ref */}
-      {/* <UseRefForwardRefExample /> */}
+      <UseRefForwardRefExample />
 
       {/* Step 5. Use context */}
-      <UseContextExample />
+      {/* <UseContextExample /> */}
 
       {/* Step 6. Extended context with state */}
-      <LoginForm />
+      {/* <LoginForm /> */}
     </>
   );
 };
