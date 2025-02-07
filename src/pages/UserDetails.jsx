@@ -1,11 +1,19 @@
-import { useEffect, useState } from 'react';
-import { Link, Outlet, useParams } from 'react-router-dom';
-import { fetchUserById } from '../services/api';
+import { useEffect, useState } from "react";
+import {
+  Link,
+  Outlet,
+  useLocation,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
+import { fetchUserById } from "../services/api";
 
 const UserDetails = () => {
   const { userId } = useParams();
-
+  const navigate = useNavigate();
   const [user, setUser] = useState(null);
+  const location = useLocation();
+  console.log(loc);
 
   useEffect(() => {
     const getData = async () => {
@@ -21,6 +29,7 @@ const UserDetails = () => {
 
   return (
     <div>
+      <button onClick={() => navigate("/users")}>Back</button>
       UserDetails #{userId}
       <img src={user.image} />
       <h2>
@@ -28,8 +37,8 @@ const UserDetails = () => {
       </h2>
       <p>Email: {user.email}</p>
       <nav>
-        <Link to='info'>Info</Link>
-        <Link to='posts'>Posts</Link>
+        <Link to="info">Info</Link>
+        <Link to="posts">Posts</Link>
       </nav>
       <div>
         <Outlet />
