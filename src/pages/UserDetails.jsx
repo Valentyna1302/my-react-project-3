@@ -1,19 +1,20 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Link,
   Outlet,
   useLocation,
-  useNavigate,
+  // useNavigate,
   useParams,
 } from "react-router-dom";
 import { fetchUserById } from "../services/api";
 
 const UserDetails = () => {
   const { userId } = useParams();
-  const navigate = useNavigate();
+  // const navigate = useNavigate(); у деяких ситуаціях
   const [user, setUser] = useState(null);
   const location = useLocation();
-  console.log(loc);
+  console.log(location);
+  const goBackUrl = useRef(location?.state ?? "/users"); // у рефа завжди є current
 
   useEffect(() => {
     const getData = async () => {
@@ -29,7 +30,7 @@ const UserDetails = () => {
 
   return (
     <div>
-      <button onClick={() => navigate("/users")}>Back</button>
+      <Link to={goBackUrl.current}>Go back</Link>
       UserDetails #{userId}
       <img src={user.image} />
       <h2>
