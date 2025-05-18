@@ -1,6 +1,6 @@
-import clsx from 'clsx';
-import { NavLink } from 'react-router-dom';
-import s from './Header.module.css';
+import clsx from "clsx";
+import { NavLink } from "react-router-dom";
+import s from "./Header.module.css";
 const buildLinkClass = ({ isActive }) => {
   return clsx(s.link, isActive && s.active);
 };
@@ -9,13 +9,19 @@ const Header = () => {
     <header>
       <h2>Router</h2>
       <nav className={s.nav}>
-        <NavLink className={({ isActive }) => clsx(s.link, isActive && s.active)} to='/'>
+        <NavLink
+          className={({ isActive }) => clsx(s.link, isActive && s.active)}
+          to="/"
+        >
           Home
         </NavLink>
-        <NavLink className={buildLinkClass} to='/about'>
+        <NavLink className={buildLinkClass} to="/login">
+          Login
+        </NavLink>
+        <NavLink className={buildLinkClass} to="/about">
           About
         </NavLink>
-        <NavLink className={buildLinkClass} to='/users'>
+        <NavLink className={buildLinkClass} to="/users">
           Users
         </NavLink>
       </nav>
